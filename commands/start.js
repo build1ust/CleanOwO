@@ -1,28 +1,24 @@
 module.exports = {
     config: {
-        name: "start"
+        name: 'start'
     },
-    run: async (j, D, K) => {
-        if (j.global.paused) {
-            j.global.captchadetected &&= false;
-            j.global.paused = false;
-            j.rpc("update");
-            await D.delete();
-            if (j.config.settings.chatfeedback) {
-                await D.channel.send({
-                    content: "BOT started have fun ;)"
-                });
+    run: async (_0x123657, _0x1a1fc8, _0x33eb35) => {
+        if (_0x123657.global.paused) {
+            _0x123657.global.captchadetected &&= false
+            _0x123657.global.paused = false
+            _0x123657.rpc('update')
+            await _0x1a1fc8.delete()
+            if (_0x123657.config.settings.chatfeedback) {
+                await _0x1a1fc8.channel.send({ content: 'BOT started have fun ;)' })
             }
             setTimeout(() => {
-                require("../utils/farm.js")(j, D);
-            }, 1000);
+                require('../utils/farm.js')(_0x123657, _0x1a1fc8)
+            }, 1000)
         } else {
-            await D.delete();
-            if (j.config.settings.chatfeedback) {
-                await D.channel.send({
-                    content: "Bot is already working!!!"
-                });
+            await _0x1a1fc8.delete()
+            if (_0x123657.config.settings.chatfeedback) {
+                await _0x1a1fc8.channel.send({ content: 'Bot is already working!!!' })
             }
         }
-    }
-};
+    },
+}

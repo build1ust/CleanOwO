@@ -1,25 +1,21 @@
 module.exports = {
     config: {
-        name: "pause",
-        aliases: ["stop"]
+        name: 'pause',
+        aliases: ['stop'],
     },
-    run: async (s, S) => {
-        if (s.global.paused) {
-            await S.delete();
-            if (s.config.settings.chatfeedback) {
-                await S.channel.send({
-                    content: "Bot is already paused!!!"
-                });
+    run: async (_0x55c0a1, _0x8aead3, _0x53fec8) => {
+        if (_0x55c0a1.global.paused) {
+            await _0x8aead3.delete()
+            if (_0x55c0a1.config.settings.chatfeedback) {
+                await _0x8aead3.channel.send({ content: 'Bot is already paused!!!' })
             }
         } else {
-            s.global.paused = true;
-            s.rpc("update");
-            await S.delete();
-            if (s.config.settings.chatfeedback) {
-                await S.channel.send({
-                    content: "Paused :)"
-                });
+            _0x55c0a1.global.paused = true
+            _0x55c0a1.rpc('update')
+            await _0x8aead3.delete()
+            if (_0x55c0a1.config.settings.chatfeedback) {
+                await _0x8aead3.channel.send({ content: 'Paused :)' })
             }
         }
-    }
-};
+    },
+}

@@ -1,11 +1,11 @@
-module.exports = async t => {
-    const v = t.fs.readdirSync("./commands/").filter(G => G.endsWith(".js"));
-    for (let G of v) {
-        let B = require("../commands/" + G);
-        t.commands.set(B.config.name, B);
-        if (B.config.aliases) {
-            B.config.aliases.forEach(J => t.aliases.set(J, B.config.name));
+module.exports = async p => {
+    const v = p.fs.readdirSync("./commands/").filter(p2 => p2.endsWith(".js"));
+    for (let v2 of v) {
+        let vRequire = require("../commands/" + v2);
+        p.commands.set(vRequire.config.name, vRequire);
+        if (vRequire.config.aliases) {
+            vRequire.config.aliases.forEach(p3 => p.aliases.set(p3, vRequire.config.name));
         }
     }
-    console.log(t.chalk.blue(t.chalk.bold("Bot")), t.chalk.white(">>"), t.chalk.red("Commands"), t.chalk.green("Succesfully loaded!"));
+    console.log(p.chalk.blue(p.chalk.bold("Bot")), p.chalk.white(">>"), p.chalk.red("Commands"), p.chalk.green("Succesfully loaded!"));
 };
